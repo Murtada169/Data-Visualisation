@@ -19,7 +19,7 @@
 	https://templatemo.com/tm-524-product-admin
 	-->
 </head>
-
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <body id="reportsPage">
     <div class="" id="home">
         <!-- Header -->
@@ -63,6 +63,79 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="tm-bg-primary-dark graph-container graph-one">
+                <h2 class="tm-block-title">Mental Health - Panic Attacks Based on Gender according compared to CGPA</h2>
+                <div id="graph2"></div>
+                <div class="graph-description">
+                    <p>efdgdfgfd</p>
+                    <ul>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="tm-bg-primary-dark graph-container graph-one">
+                <h2 class="tm-block-title">Mother Education Effect on Student's Performance</h2>
+                <div id="graph3"></div>
+                <div class="graph-description">
+                    <p>efdgdfgfd</p>
+                    <ul>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="tm-bg-primary-dark graph-container graph-one">
+                <h2 class="tm-block-title">Absence Effect on Performance</h2>
+                <button onclick="update(data1)">Max score for groups of absences</button>
+                <button onclick="update(data2)">Avg score based on absences</button>
+                <div id="graph4"></div>
+                <div class="graph-description">
+                    <p>efdgdfgfd</p>
+                    <ul>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="tm-bg-primary-dark graph-container graph-one">
+                <h2 class="tm-block-title">Absence Effect on Performance</h2>
+                <div id="graph5"></div>
+                <div class="graph-description">
+                    <p>efdgdfgfd</p>
+                    <ul>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="tm-bg-primary-dark graph-container graph-one">
+                <h2 class="tm-block-title">Absence Effect on Performance</h2>
+                <div id="graph6">
+                </div>
+                <div class="graph-description">
+                    <p>efdgdfgfd</p>
+                    <ul>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                        <li>efdgdfgfd.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <footer class="tm-footer row tm-mt-small">
             <div class="col-12 font-weight-light">
                 <p class="text-center text-white mb-0 px-4 small">
@@ -85,6 +158,45 @@
     <script src="https://d3js.org/d3.v4.js"></script>
     <!-- Load subject to parent education JS file -->
     <script src="js/subject-parent-education.js"></script>
+    <script src="js/Panic-Attacks-Graph.js"></script>
+    <script src="js/motheredu.js"></script>
+    <script src="js/absence.js"></script>
+    <script src="js/family.js"></script>
+
+    <script>
+        window.onload = update(data1)                    
+    </script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ["Address", "Percentage %", { role: "style" } ],
+            ["Rural", 20.73, "#AA336A"],
+            ["Urban", 79.27, "#FF5733 "],
+          ]);
+    
+          var view = new google.visualization.DataView(data);
+          view.setColumns([0, 1,
+                           { calc: "stringify",
+                             sourceColumn: 1,
+                             type: "string",
+                             role: "annotation" },
+                           2]);
+    
+          var options = {
+            title: "Student Adress vs Percentage of total score",
+            width: 600,
+            height: 400,
+            bar: {groupWidth: "50%"},
+            legend: { position: "none" },
+          };
+    
+          
+          var chart = new google.visualization.BarChart(document.getElementById("graph6"));
+          chart.draw(view, options);
+      }
+      </script>
 </body>
 
 </html>

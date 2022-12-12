@@ -50,7 +50,7 @@ d3.csv("../DataSets/Dataset1Sliced.csv", function(data) {
     .text("Subject Total");  
 
     // Another scale for subgroup position
-    var xSubgroup = d3.scaleBand().domain(subgroups).range([0, x.bandwidth()]).padding([0.05]);
+    var xSubgroup = d3.scaleBand().domain(subgroups).range([0, x.bandwidth()]).padding([0.2]);
 
     // color palette
     var color = d3.scaleOrdinal()
