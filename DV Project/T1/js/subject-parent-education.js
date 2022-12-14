@@ -17,7 +17,7 @@ var svg = d3.select("#allan-graph1")
 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("../DataSets/Dataset1Sliced.csv", function(data) {
+d3.csv("Dataset1Sliced.csv", function(data) {
     var subgroups = data.columns;
     var groups = d3.map(data, function(d){return(d.ParEd)}).keys();
 
